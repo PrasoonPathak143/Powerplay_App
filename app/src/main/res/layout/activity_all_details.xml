@@ -4,28 +4,20 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:padding="10dp"
     android:orientation="vertical"
-    tools:context=".ImageOpen">
+    tools:context=".AllDetails">
     <androidx.appcompat.widget.Toolbar
         android:id="@+id/toolbar"
         android:layout_width="match_parent"
+        app:title="Details of markers"
         android:background="@color/design_default_color_primary"
         android:layout_height="wrap_content"
         />
-
-    <com.github.chrisbanes.photoview.PhotoView
-        android:id="@+id/photoView"
+    <androidx.recyclerview.widget.RecyclerView
         android:layout_width="match_parent"
-        android:layout_height="700dp" />
-
-    <Button
-        android:id="@+id/btn_details"
-        android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_below="@id/photoView"
-        android:layout_gravity="center"
-        android:layout_marginBottom="10dp"
-        android:text="All details" />
-
+        android:id="@+id/rc_description"
+        />
 
 </LinearLayout>

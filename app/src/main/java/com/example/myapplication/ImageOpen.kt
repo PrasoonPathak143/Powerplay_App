@@ -5,6 +5,7 @@ import android.graphics.RectF
 import android.os.Bundle
 import android.app.AlertDialog
 import android.content.DialogInterface
+import android.content.Intent
 
 import android.view.View
 import android.widget.Button
@@ -25,6 +26,7 @@ import com.github.chrisbanes.photoview.PhotoView
 
 class ImageOpen : AppCompatActivity() {
     private var binding : ActivityImageOpenBinding ?= null
+    private var btn_des : Button ?= null
     private lateinit var gestureDetector : GestureDetectorCompat
     private lateinit var photoview : PhotoView
 
@@ -32,10 +34,24 @@ class ImageOpen : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = ActivityImageOpenBinding.inflate(layoutInflater)
         setContentView(binding?.root)
+
+        btn_des = binding?.btnDetails
         photoview = binding?.photoView!!
         val intent = intent
         val imageUrl = intent.getStringExtra("imageUrl")
-
+        val imageName = intent.getStringExtra("imageName")
+        setSupportActionBar(binding?.toolbar)
+        if(supportActionBar != null){
+            supportActionBar?.setDisplayHomeAsUpEnabled(true)
+            title = imageName
+        }
+        binding?.toolbar?.setNavigationOnClickListener {
+            onBackPressedDispatcher.onBackPressed()
+        }
+        btn_des?.setOnClickListener {
+            val intent = Intent(this, AllDetails::class.java)
+            startActivity(intent)
+        }
         gestureDetector = GestureDetectorCompat(this, object : GestureDetector.SimpleOnGestureListener(){
             override fun onDoubleTap(e: MotionEvent): Boolean {
                 e.let{
@@ -91,5 +107,9 @@ class ImageOpen : AppCompatActivity() {
             .setCancelable(false)
         val alertDialog = builder.create()
         alertDialog.show()
+    }
+    override fun onDestroy() {
+        super.onDestroy()
+        binding = null
     }
 }

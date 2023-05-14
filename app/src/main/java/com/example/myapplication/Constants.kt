@@ -11,4 +11,11 @@ object Constants {
         return list
 
     }
+    fun descriptionList() : ArrayList<Description>{
+        val list = ArrayList<Description>()
+        list.add(Description("Lorem Ipsum", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed commodo, est a tincidunt accumsan, elit felis aliquet enim, vitae cursus nulla lorem eu nisi. Nunc ultrices viverra erat, et condimentum libero fringilla sed. Proin consectetur sollicitudin neque a euismod. Integer et ullamcorper felis, sed condimentum purus."))
+        list.add(Description("Lorem Ipsum", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed commodo, est a tincidunt accumsan, elit felis aliquet enim, vitae cursus nulla lorem eu nisi. Nunc ultrices viverra erat, et condimentum libero fringilla sed. Proin consectetur sollicitudin neque a euismod. Integer et ullamcorper felis, sed condimentum purus."))
+        list.add(Description("Lorem Ipsum", "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed commodo, est a tincidunt accumsan, elit felis aliquet enim, vitae cursus nulla lorem eu nisi. Nunc ultrices viverra erat, et condimentum libero fringilla sed. Proin consectetur sollicitudin neque a euismod. Integer et ullamcorper felis, sed condimentum purus."))
+        return list
+    }
 }
